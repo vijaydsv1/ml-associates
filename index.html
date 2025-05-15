@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>ML ASSOCIATES | Auditors & Tax Consultants</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -79,45 +79,109 @@
         .contact a:hover {
             text-decoration: underline;
         }
-        .footer-content {
+
+        /* New styles for top-section with quote left and contact right */
+        .top-section {
+            max-width: 1200px;
+            margin: 20px auto 0;
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
             align-items: flex-start;
+            padding: 0 20px;
             flex-wrap: wrap;
-            padding: 20px;
+            gap: 20px;
+            text-align: left;
+        }
+        .top-quote {
+            flex: 1 1 45%;
+            color: #00274d;
+            font-style: italic;
+            font-weight: 500;
+        }
+        .top-quote p:last-child {
+            font-weight: 700;
+            margin-top: 5px;
+        }
+        .top-contact {
+            flex: 1 1 45%;
+            font-weight: 600;
+            color: #00274d;
+            text-align: right;
+        }
+        .top-contact a {
+            color: #00274d;
+            text-decoration: none;
+        }
+        .top-contact a:hover {
+            text-decoration: underline;
+        }
+        /* Footer changes for Useful Links bottom left and photo bottom right */
+        footer {
             background: #00274d;
             color: white;
-            text-align: left;
+            padding: 30px 10%;
+            max-width: 1200px;
+            margin: 20px auto 0;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: flex-start;
         }
         .footer-section {
             max-width: 300px;
         }
         .footer-section h3 {
             border-bottom: 2px solid white;
-            display: inline-block;
             padding-bottom: 5px;
+            display: inline-block;
+            margin-bottom: 15px;
         }
         .footer-section a {
             color: white;
             text-decoration: none;
+            display: block;
+            margin: 6px 0;
         }
         .footer-section a:hover {
             text-decoration: underline;
         }
-        .footer-logo {
-            text-align: left;
-        }
-        .footer-logo img {
-            width: 200px;
-        }
-        .social-icons {
+        .footer-photo {
+            max-width: 300px;
+            min-width: 250px;
+            height: 180px;
+            background: white;
+            border-radius: 10px;
+            border: 2px dashed #ccc;
             display: flex;
-            gap: 10px;
+            justify-content: center;
+            align-items: center;
+            color: #ccc;
+            font-style: italic;
+            font-weight: 600;
+            text-align: center;
         }
-        .social-icons a {
-            color: white;
-            font-size: 20px;
-            text-decoration: none;
+
+        @media (max-width: 768px) {
+            .top-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            .top-contact {
+                text-align: center;
+                margin-top: 15px;
+            }
+            footer {
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 5%;
+            }
+            .footer-section, .footer-photo {
+                max-width: 100%;
+                min-width: auto;
+                text-align: center;
+                margin-bottom: 20px;
+            }
         }
     </style>
 </head>
@@ -126,94 +190,73 @@
         <div>ML ASSOCIATES | Auditors & Tax Consultants</div>
         <div class="header-buttons">
             <a href="services.html"><button>User Login</button></a>
-            <a href='employeelogin.html'><button>Employee Login</button></a>
+            <a href="employeelogin.html"><button>Employee Login</button></a>
         </div>
     </header>
-    
-    <div class="logo">
-        <a href="https://ibb.co/N2pHQNRX"><img src="https://i.ibb.co/Sw09WmS2/upscalemedia-transformed.jpg" alt="ML Associates Logo" border="0"></a>
+
+    <div class="top-section">
+        <div class="top-quote">
+            <p>"A Chartered Accountant is not just a number cruncher but a business advisor, strategist, and guardian of financial integrity."</p>
+            <p>- Peter Drucker</p>
+        </div>
+        <div class="top-contact">
+            <p><strong>Contact:</strong></p>
+            <p>📞 +91 91 00 600328</p>
+            <p>✉️ <a href="mailto:mlassociates143@gmail.com">mlassociates143@gmail.com</a></p>
+            <p>Address: 11-118, Water Tank St, Ramarao Colony, Puttur, Andhra Pradesh - 517583</p>
+
+        </div>
     </div>
-    
+
+    <div class="logo" style="text-align:center; margin: 20px 0;">
+        <a href="https://ibb.co/N2pHQNRX">
+            <img src="https://i.ibb.co/Sw09WmS2/upscalemedia-transformed.jpg" alt="ML Associates Logo" />
+        </a>
+    </div>
+
     <div class="container">
         <section class="about">
             <h2>About Us</h2>
             <p>ML ASSOCIATES is a premier firm specializing in auditing, taxation, and financial consulting services. With years of expertise and a commitment to excellence, we provide strategic financial solutions tailored to businesses and individuals. 
-               Our team of highly skilled professionals ensures compliance with financial regulations while helping clients optimize their financial health.</p>
-            <p>We pride ourselves on our integrity, transparency, and unwavering dedication to delivering high-quality services. By leveraging industry expertise and innovative financial strategies, we empower our clients to achieve their financial goals with confidence.</p>
+                Our team of highly skilled professionals ensures compliance with financial regulations while helping clients optimize their financial health.</p>
+             <p>We pride ourselves on our integrity, transparency, and unwavering dedication to delivering high-quality services. By leveraging industry expertise and innovative financial strategies, we empower our clients to achieve their financial goals with confidence.</p>
             <h3>Our Mission</h3>
             <p>Our mission is to deliver comprehensive, reliable, and customized financial solutions that drive business growth, ensure regulatory compliance, and create financial stability. We strive to build long-term relationships based on trust, professionalism, and expertise, ensuring that our clients always receive the best guidance in managing their financial affairs.</p>
             <h3>Our Vision</h3>
             <p>Our vision is to be recognized as a trusted financial partner and a leader in the auditing and taxation industry. We aim to set industry benchmarks for excellence, ethical standards, and client satisfaction. Our goal is to continuously innovate and evolve, offering cutting-edge financial solutions that align with the dynamic needs of businesses and individuals.</p>
             <h3>Our Core Values</h3>
-            <p><b>Integrity & Transparency – </b>We uphold the highest ethical standards in all our dealings,
-                <b>Client-Centric Approach –</b> We prioritize our clients’ financial well-being, tailoring solutions to their unique needs,
-                <b>Excellence & Accuracy –</b> Our team is committed to delivering precise and high-quality financial services,
-                <b>Innovation & Growth –</b> We stay ahead of industry trends, leveraging modern financial practices for better results,
-                <b>Compliance & Responsibility – </b> Ensuring that businesses remain compliant with tax laws and financial regulations.</p>
+            <p><b>Integrity & Transparency</b> – >We uphold the highest ethical standards in all our dealings,<br>
+               <b>Client-Centric Approach</b> – We prioritize our clients’ financial well-being, tailoring solutions to their unique needs,<br>
+               <b>Excellence & Accuracy</b> – Our team is committed to delivering precise and high-quality financial services,<br>
+               <b>Innovation & Growth</b> – We stay ahead of industry trends, leveraging modern financial practices for better results,<br>
+               <b>Compliance & Responsibility</b> – Ensuring that businesses remain compliant with tax laws and financial regulations.</p>
         </section>
     </div>
-    
+
     <footer>
-        <div class="footer-content">
-            <div class="footer-logo">
-                <div class="footer-logo">
-                    <img src="https://i.ibb.co/Sw09WmS2/upscalemedia-transformed.jpg" alt="ML Associates Logo">
-                    <p class="footer-quote">"A Chartered Accountant is not just a number cruncher but a business advisor, strategist, and guardian of financial integrity."</p>
-                    <p class="footer-author">- Peter Drucker</p>
-                    <style>.footer-logo {
-                        text-align: center;
-                        max-width: 250px; /* Adjust size */
-                    }
-                    
-                    .footer-logo img {
-                        width: 100%;
-                        height: auto;
-                        max-height: 120px; /* Adjust height */
-                        object-fit: contain;
-                    }
-                    
-                    .footer-quote {
-                        color: white;
-                        font-style: italic;
-                        margin-top: 10px;
-                    }
-                    
-                    .footer-author {
-                        font-style: italic;
-                        color: white;
-                        font-weight: bold;
-                        @keyframes fadeIn {
-                        from { opacity: 0; transform: translateY(10px); }
-                        to { opacity: 1; transform: translateY(0); }
-                        }
-                    }
-                    </style>
-                </div>
-                
-            </div>
-            <div class="footer-section">
-                <h3>Contact Information</h3>
-                <p>Phone: +91 91 00 600328</p>
-                <p>Email: <a href="mailto:mlassociates143@gmail.com">mlassociates143@gmail.com</a></p>
-                <p>Address: 11-118, Water Tank St, Ramarao Colony, Puttur, Andhra Pradesh - 517583</p>
-            </p>
-                <div class="social-icons">
-                    <a href="https://www.facebook.com/profile.php?id=100083173556038#">Facebook</a>
-                    <a href="https://www.instagram.com/ml_associates14/?fbclid=IwZXh0bgNhZW0CMTEAAR0VitABvipVOE6_1Fr4KFFJNvzPsK4HDhbXd1SPHYyfAeuXdoHvfmSnQ-k_aem_mPKkUqAKHlsnAAi_mUHpVg">Instagram</a>
-                    <a href="#">LinkedIn</a>
-                    <a href="#">Twitter</a>
-                </div>
-            </div>
-            <div class="footer-section">
-                <h3>Useful Links</h3>
-                <p><a href="https://incometaxindia.gov.in/Pages/default.aspx">Income Tax Dept.</a></p>
-                <p><a href="https://www.cbic.gov.in/">Central Board of Excise & Customs</a></p>
-                <p><a href="https://www.protean-tinpan.com/">E-Tax Information Network</a></p>
-                <p><a href="https://www.mca.gov.in/content/mca/global/en/home.html">Ministry of Corporate Affairs</a></p>
-                <p><a href="https://www.epfindia.gov.in/site_en/index.php">Employees Provident Fund</a></p>
-            </div>
+        <div class="footer-section useful-links">
+            <h3>Useful Links</h3>
+            <a href="https://incometaxindia.gov.in/Pages/default.aspx" target="_blank">Income Tax Dept.</a>
+            <a href="https://www.cbic.gov.in/" target="_blank">Central Board of Excise & Customs</a>
+            <a href="https://www.protean-tinpan.com/"target="_blank">E-Tax Information Network</a>
+            <a href="https://www.mca.gov.in/content/mca/global/en/home.html"target="_blank">Ministry of Corporate Affairs</a>
+            <a href="https://www.epfindia.gov.in/site_en/index.php" target="_blank">Employees Provident Fund</a>
         </div>
-        <p style="text-align:center; padding:10px 0; background:#00274d; color:white;">&copy; 2025 ML ASSOCIATES. All Rights Reserved.</p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/profile.php?id=100083173556038#" target="_blank">facebook</a>
+            <a href="https://www.instagram.com/ml_associates14/?fbclid=IwZXh0bgNhZW0CMTEAAR0VitABvipVOE6_1Fr4KFFJNvzPsK4HDhbXd1SPHYyfAeuXdoHvfmSnQ-k_aem_mPKkUqAKHlsnAAi_mUHpVg" target="_blank">instagram</a>
+            <a href="#">LinkedIn</a>
+            <a href="#">Twitter</a>
+        </div>
+
+
+        <div class="footer-photo">
+            Add Photo Here
+        </div>
     </footer>
+
+    <p style="text-align:center; padding:10px 0; background:#00274d; color:white;">
+        &copy; 2025 ML ASSOCIATES. All Rights Reserved.
+    </p>
 </body>
 </html>
