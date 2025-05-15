@@ -1,127 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services - ML ASSOCIATES</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: url('ca_background.jpg') no-repeat center center/cover;
-            text-align: center;
-        }
-        .container {
-            width: 90%;
-            margin: auto;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-        }
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-        .service-card {
-            background: white;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-        }
-        .service-card h3 {
-            color: #00274d;
-        }
-        .service-card p {
-            font-size: 14px;
-        }
-        .service-card a {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 8px 12px;
-            background: #00274d;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-        .service-card a:hover {
-            background: #004080;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Services - ML ASSOCIATES</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url('ca_background.jpg') no-repeat center center/cover;
+      text-align: center;
+    }
+    .container {
+      width: 90%;
+      margin: auto;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 10px;
+      display: none;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .service-card {
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .service-card h3 {
+      color: #00274d;
+    }
+    .service-card p {
+      font-size: 14px;
+    }
+    .service-card a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 12px;
+      background: #00274d;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    .service-card a:hover {
+      background: #004080;
+    }
+
+    /* Login Modal */
+    .login-modal {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 999;
+    }
+    .login-box {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      width: 300px;
+      box-shadow: 0px 4px 20px rgba(0,0,0,0.3);
+    }
+    .login-box input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+    }
+    .login-box button {
+      width: 100%;
+      padding: 10px;
+      background: #00274d;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .login-box button:hover {
+      background: #004080;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Our Services</h1>
-        <div class="services-grid">
-            <div class="service-card">
-                <h3>GST Registration / Filings</h3>
-                <p>Get your GST registration done quickly and efficiently. <br><strong>Deadline:</strong> 30 days from business commencement.</p>
-                <a href="https://www.gst.gov.in/">Official Website</a>
-            </div>
-            <div class="service-card">
-                <h3>GST Filings</h3>
-                <p>Ensure timely GST filings and compliance. <br><strong>Deadline:</strong> Monthly/Quarterly.</p>
-                <a href="https://www.gst.gov.in/">Official Website</a>
-            </div>
-            <div class="service-card">
-                <h3>E-Way Bills</h3>
-                <p>Generate e-way bills seamlessly for transportation. <br><strong>Deadline:</strong> Before movement of goods.</p>
-                <a href="https://ewaybillgst.gov.in/">Official Website</a>
-            </div>
-            <div class="service-card">
-                <h3>IT Registration & Returns</h3>
-                <p>Register and file your income tax returns with ease. <br><strong>Deadline:</strong> 31st July of each year.</p>
-                <a href="https://www.incometax.gov.in/">Official Website</a>
-            </div>
-            <div class="service-card">
-                <h3>Accounting & Auditing</h3>
-                <p>We offer bookkeeping, financial statements, and audits. <br><strong>Deadline:</strong> Varies per company regulations.</p>
-                <a href="https://www.icai.org/">Official Website</a>
-            </div>
-            <div class="service-card">
-                <h3>Company Registration</h3>
-                <p>Register your business legally and securely. <br><strong>Deadline:</strong> Within 30 days of incorporation.</p>
-                <a href="https://www.mca.gov.in/">Official Website</a>
-            </div>
-            <div class="service-card">
-                <h3>Company Filings</h3>
-                <p>Ensure proper documentation and legal filings. <br><strong>Deadline:</strong> Annual filings as per MCA norms.</p>
-                <a href="https://www.mca.gov.in/">Official Website</a>
-            </div>
-            <div class="service-card">
-                <h3>Digital Signatures</h3>
-                <p>Get legally valid digital signatures for your business. <br><strong>Deadline:</strong> No specific deadline.</p>
-                <a href="https://www.cca.gov.in/">Official Website</a>
-            </div>
-            <div class="service-card">
-                <h3>MSME/Udyam Registration</h3>
-                <p>Register under MSME/Udyam for business benefits. <br><strong>Deadline:</strong> No specific deadline.</p>
-                <a href="https://udyamregistration.gov.in/">Official Website</a>
-            </div>
-            <div class="service-card">
-                <h3>FSSAI Application</h3>
-                <p>Obtain your FSSAI food license easily. <br><strong>Deadline:</strong> Before starting a food business.</p>
-                <a href="https://www.fssai.gov.in/">Official Website</a>
-            </div>
-            <div class="service-card">
-                <h3>Labour Licence</h3>
-                <p>We assist in obtaining labor licenses for businesses. <br><strong>Deadline:</strong> Before hiring labor.</p>
-                <a href="https://labour.gov.in/">Official Website</a>
-            </div>
-            <div class="service-card">
-                <h3>PF & ESI PF</h3>
-                <p>Manage Provident Fund (PF) and Employee State Insurance (ESI). <br><strong>Deadline:</strong> 15th of each month.</p>
-                <a href="https://www.epfindia.gov.in/">Official Website</a>
-            </div>
-            <div class="service-card">
-                <h3>Loans & Govt Schemes</h3>
-                <p>We assist in applying for Mudra and other loans. <br><strong>Deadline:</strong> As per scheme guidelines.</p>
-                <a href="https://www.mudra.org.in/">Official Website</a>
-            </div>
-        </div>
+  <!-- Login Modal -->
+  <div class="login-modal" id="loginModal">
+    <div class="login-box">
+      <h2>Login</h2>
+      <input type="text" id="username" placeholder="Username" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <button onclick="login()">Login</button>
     </div>
+  </div>
+
+  <!-- Services Container (Hidden until login) -->
+  <div class="container" id="servicesContainer">
+    <h1>Our Services</h1>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>GST Registration / Filings</h3>
+        <p>Get your GST registration done quickly and efficiently. Ensure timely GST filings and compliance.<br><strong>Deadline:</strong> 30 days from business commencement and Monthly/Quarterly. </p>
+        <a href="https://www.gst.gov.in/" target="_blank">Official Website</a>
+      </div>
+      <div class="service-card">
+        <h3>E-Way Bills</h3>
+        <p>Generate e-way bills seamlessly for transportation.<br><strong>Deadline:</strong> Before movement of goods.</p>
+        <a href="https://ewaybillgst.gov.in/" target="_blank">Official Website</a>
+      </div>
+      <div class="service-card">
+        <h3>IT Registration & Returns</h3>
+        <p>Register and file your income tax returns with ease.<br><strong>Deadline:</strong> 31st July of each year.</p>
+        <a href="https://www.incometax.gov.in/" target="_blank">Official Website</a>
+      </div>
+      <div class="service-card">
+        <h3>Accounting & Auditing</h3>
+        <p>We offer bookkeeping, financial statements, and audits.<br><strong>Deadline:</strong> Varies per company regulations.</p>
+        <a href="https://www.icai.org/" target="_blank">Official Website</a>
+      </div>
+      <div class="service-card">
+        <h3>Company Registration / Filings</h3>
+        <p>Register your business legally and securely. Ensure proper documentation and legal filings.<br><strong>Deadline:</strong> Within 30 days of incorporation and Annual filings as per MCA norms.</p>
+        <a href="https://www.mca.gov.in/" target="_blank">Official Website</a>
+      </div>
+      <div class="service-card">
+        <h3>Digital Signatures</h3>
+        <p>Get legally valid digital signatures for your business.<br><strong>Deadline:</strong> No specific deadline.</p>
+        <a href="https://www.signxca.com/" target="_blank">Official Website</a>
+      </div>
+      <div class="service-card">
+        <h3>MSME/Udyam Registration</h3>
+        <p>Register under MSME/Udyam for business benefits.<br><strong>Deadline:</strong> No specific deadline.</p>
+        <a href="https://udyamregistration.gov.in/" target="_blank">Official Website</a>
+      </div>
+      <div class="service-card">
+        <h3>FSSAI Application</h3>
+        <p>Obtain your FSSAI food license easily.<br><strong>Deadline:</strong> Before starting a food business.</p>
+        <a href="https://foscos.fssai.gov.in/" target="_blank">Official Website</a>
+      </div>
+      <div class="service-card">
+        <h3>Labour Licence</h3>
+        <p>We assist in obtaining labor licenses for businesses.<br><strong>Deadline:</strong> Before hiring labor.</p>
+        <a href="https://labour.telangana.gov.in/Entrepreneur.do" target="_blank">Telangana Website</a><br>
+        <a href="https://onlineap.meeseva.gov.in/CitizenPortal/UserInterface/Citizen/Home.aspx" target="_blank">Andhra Pradesh Website</a>
+      </div>
+      <div class="service-card">
+        <h3>PF & ESI PF</h3>
+        <p>Manage Provident Fund (PF) and Employee State Insurance (ESI).<br><strong>Deadline:</strong> 15th of each month.</p>
+        <a href="https://www.epfindia.gov.in/" target="_blank">Official Website</a>
+      </div>
+      <div class="service-card">
+        <h3>Loans & Govt Schemes</h3>
+        <p>We assist in applying for Mudra and other loans.<br><strong>Deadline:</strong> As per scheme guidelines.</p>
+        <a href="https://www.mudra.org.in/" target="_blank">Official Website</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function login() {
+      const user = document.getElementById("username").value;
+      const pass = document.getElementById("password").value;
+
+      // Dummy login: username = admin, password = 1234
+      if (user === "mlassociates143@gmail.com" && pass === "Audit@9999") {
+        document.getElementById("loginModal").style.display = "none";
+        document.getElementById("servicesContainer").style.display = "block";
+      } else {
+        alert("Invalid login! Try admin / 1234");
+      }
+    }
+  </script>
 </body>
 </html>
