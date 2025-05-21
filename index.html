@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>ML ASSOCIATES | Auditors & Tax Consultants</title>
@@ -161,6 +163,15 @@
             font-weight: 600;
             text-align: center;
         }
+        .footer-bottom-right img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
 
         @media (max-width: 768px) {
             .top-section {
@@ -185,6 +196,243 @@
         }
     </style>
 </head>
+<!-- Chatbot Styles -->
+<style>
+    #chatbot-toggle {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #00274d;
+        color: white;
+        border: none;
+        padding: 15px;
+        border-radius: 50%;
+        font-size: 20px;
+        cursor: pointer;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    #chatbot-box {
+        position: fixed;
+        bottom: 80px;
+        right: 20px;
+        width: 360px;
+        background: #f0f0f0;
+        border-radius: 10px;
+        display: none;
+        flex-direction: column;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        z-index: 9999;
+        overflow: hidden;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    #chatbot-header {
+        background: #00274d;
+        color: white;
+        padding: 12px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    #chatbot-messages {
+        height: 340px;
+        overflow-y: auto;
+        padding: 10px;
+        background: #e5ddd5;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .chat-msg {
+        max-width: 75%;
+        margin-bottom: 8px;
+        padding: 10px;
+        border-radius: 10px;
+        font-size: 14px;
+        line-height: 1.4;
+        white-space: pre-line;
+    }
+
+    .chat-msg.user {
+        background-color: #dcf8c6;
+        align-self: flex-end;
+        border-bottom-right-radius: 0;
+    }
+
+    .chat-msg.bot {
+        background-color: #fff;
+        align-self: flex-start;
+        border-bottom-left-radius: 0;
+    }
+
+    #chatbot-input {
+        display: flex;
+        border-top: 1px solid #ccc;
+        background: white;
+    }
+
+    #chatbot-input input {
+        flex: 1;
+        border: none;
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    #chatbot-input button {
+        border: none;
+        background: #00274d;
+        color: white;
+        padding: 10px;
+        cursor: pointer;
+    }
+
+    .chat-suggestions, .service-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        padding: 5px 10px;
+        background: #fafafa;
+    }
+
+    .chat-suggestions button,
+    .service-buttons button {
+        background: #f0f0f0;
+        border: 1px solid #ccc;
+        border-radius: 20px;
+        padding: 5px 10px;
+        font-size: 12px;
+        cursor: pointer;
+    }
+
+    .chat-suggestions button:hover,
+    .service-buttons button:hover {
+        background: #ddd;
+    }
+</style>
+
+<!-- Chatbot HTML -->
+<button id="chatbot-toggle">💬</button>
+<div id="chatbot-box">
+    <div id="chatbot-header">ML Associates</div>
+    <div id="chatbot-messages">
+        <div class="chat-msg bot">👋 Hello! How can I help you today?</div>
+    </div>
+    <div class="chat-suggestions">
+        <button onclick="sendMessage('Our Services')">Our Services</button>
+        <button onclick="sendMessage('Contact Details')">Contact Details</button>
+        <button onclick="sendMessage('Working Hours')">Working Hours</button>
+    </div>
+    <div id="chatbot-input">
+        <input type="text" id="user-input" placeholder="Type a message..." />
+        <button onclick="handleInput()">Send</button>
+    </div>
+</div>
+
+<!-- Chatbot Script -->
+<script>
+    const toggleBtn = document.getElementById('chatbot-toggle');
+    const chatbotBox = document.getElementById('chatbot-box');
+    const messages = document.getElementById('chatbot-messages');
+    const userInput = document.getElementById('user-input');
+
+    const services = {
+        "GST Registration": "We help you register your business under GST with all required documentation.",
+        "GST Filings": "We manage your monthly/quarterly GST return filings on time.",
+        "E-Way Bills": "We generate E-Way Bills required for transporting goods under GST rules.",
+        "Income Tax Return": "We file your personal and business ITRs accurately and promptly.",
+        "Book Keeping": "We maintain and organize your daily financial transactions.",
+        "Company Registration": "We assist with registering Private Limited, LLP, or Partnership firms.",
+        "Digital Signatures": "We provide Class 2 and Class 3 Digital Signature Certificates.",
+        "MSME Registration": "We register your business under MSME/Udyam for benefits and schemes.",
+        "Import Export Licence": "We obtain IEC code to start import/export operations.",
+        "Trade Licence": "We help you obtain local municipal trade licenses for your shop/business.",
+        "PF & ESI": "We assist in Provident Fund and Employee State Insurance registration and filings.",
+        "Project Reports": "We prepare detailed project reports for loans and investments.",
+        "Life Insurance": "We help you choose and apply for suitable life insurance policies."
+    };
+
+    toggleBtn.onclick = () => {
+        chatbotBox.style.display = chatbotBox.style.display === 'flex' ? 'none' : 'flex';
+    };
+
+    function handleInput() {
+        const msg = userInput.value.trim();
+        if (msg !== '') {
+            appendMessage('user', msg);
+            respondTo(msg);
+            userInput.value = '';
+        }
+    }
+
+    function sendMessage(msg) {
+        appendMessage('user', msg);
+        respondTo(msg);
+        fetch('/store_query', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ user: 'client', message: msg })
+});
+
+    }
+
+    function appendMessage(sender, text) {
+        const div = document.createElement('div');
+        div.className = 'chat-msg ' + sender;
+        div.innerText = text;
+        messages.appendChild(div);
+        messages.scrollTop = messages.scrollHeight;
+    }
+
+    function appendServiceButtons() {
+        const serviceWrapper = document.createElement('div');
+        serviceWrapper.className = 'service-buttons';
+        for (let key in services) {
+            const btn = document.createElement('button');
+            btn.innerText = key;
+            btn.onclick = () => {
+                appendMessage('user', key);
+                setTimeout(() => {
+                    appendMessage('bot', `✅ ${key}:\n${services[key]}`);
+                }, 500);
+            };
+            serviceWrapper.appendChild(btn);
+        }
+        messages.appendChild(serviceWrapper);
+        messages.scrollTop = messages.scrollHeight;
+    }
+
+    function respondTo(msg) {
+        const lowerMsg = msg.toLowerCase();
+        if (lowerMsg.includes("service")) {
+            appendMessage('bot', "📋 Here are some of the services we offer. Click to know more:");
+            appendServiceButtons();
+        } else if (lowerMsg.includes("contact")) {
+            appendMessage('bot', "📞 +91 9100600328\n✉️ mlassociates143@gmail.com\n📍 Puttur, Andhra Pradesh");
+        } else if (lowerMsg.includes("working") || lowerMsg.includes("timing")) {
+            appendMessage('bot', "🕒 We are available Monday to Saturday, 10 AM to 6 PM.");
+        } else {
+            let found = false;
+            for (let key in services) {
+                if (lowerMsg.includes(key.toLowerCase())) {
+                    appendMessage('bot', `✅ ${key}:\n${services[key]}`);
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                appendMessage('bot', "🤖 I'm sorry, I didn't understand that. Try clicking 'Our Services' to explore.");
+            }
+        }
+    }
+
+    userInput.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') handleInput();
+    });
+</script>
+
 <body>
     <header>
         <div>ML ASSOCIATES | Auditors & Tax Consultants</div>
@@ -250,8 +498,9 @@
         </div>
 
 
-        <div class="footer-photo">
-            Add Photo Here
+        <div class="footer-bottom-right">
+    <img src="C:\Users\vijay\Downloads\download.jpg" alt="ML Associates" />
+
         </div>
     </footer>
 
